@@ -48,3 +48,11 @@ class PrimaryFont {
     );
   }
 }
+
+extension GetOrientation on BuildContext {
+  Orientation get orientation => MediaQuery.of(this).orientation;
+}
+
+extension GetSize on BuildContext {
+  Size get screenSize => MediaQuery.of(this).size;
+}

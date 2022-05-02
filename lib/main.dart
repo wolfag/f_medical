@@ -1,5 +1,6 @@
 import 'package:device_preview/device_preview.dart';
-import 'package:f_medical/pages/home_page.dart';
+import 'package:f_medical/pages/choose_topic_page.dart';
+import 'package:f_medical/pages/get_started_page.dart';
 import 'package:f_medical/utils/theme.dart';
 import 'package:flutter/material.dart';
 
@@ -26,7 +27,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: kColorPrimary,
       ),
-      home: const HomePage(),
+      initialRoute: '$GetStartedPage',
+      routes: {
+        '$GetStartedPage': (_) => const GetStartedPage(),
+        '$ChooseTopicPage': (_) => const ChooseTopicPage(),
+      },
     );
   }
 }
