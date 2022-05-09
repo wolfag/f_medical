@@ -1,6 +1,7 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:f_medical/pages/choose_topic_page.dart';
 import 'package:f_medical/pages/get_started_page.dart';
+import 'package:f_medical/pages/reminder_page.dart';
 import 'package:f_medical/utils/theme.dart';
 import 'package:flutter/material.dart';
 
@@ -21,6 +22,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       useInheritedMediaQuery: true,
+      debugShowCheckedModeBanner: false,
       builder: DevicePreview.appBuilder,
       locale: DevicePreview.locale(context),
       title: 'Flutter Demo',
@@ -31,6 +33,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '$GetStartedPage': (_) => const GetStartedPage(),
         '$ChooseTopicPage': (_) => const ChooseTopicPage(),
+        '$ReminderPage': (_) => const ReminderPage(),
       },
     );
   }

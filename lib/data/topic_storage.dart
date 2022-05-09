@@ -14,7 +14,7 @@ class AssetTopicStorage extends TopicStorage {
   Future<List<Topic>> load() async {
     try {
       if (kDebugMode) {
-        await Future.delayed(const Duration(seconds: 2));
+        // await Future.delayed(const Duration(seconds: 2));
       }
 
       final jsonContent =

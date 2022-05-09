@@ -1,5 +1,6 @@
 import 'package:f_medical/data/model/topic.model.dart';
 import 'package:f_medical/data/topic_storage.dart';
+import 'package:f_medical/pages/reminder_page.dart';
 import 'package:f_medical/utils/theme.dart';
 import 'package:f_medical/widgets/responsive_builder.dart';
 import 'package:flutter/material.dart';
@@ -142,35 +143,40 @@ class _TopicGrid extends StatelessWidget {
           itemBuilder: (context, index) {
             final topic = topics[index];
 
-            return DecoratedBox(
-              decoration: BoxDecoration(
-                color: topic.bgColor,
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  LayoutBuilder(
-                    builder: (context, constraints) {
-                      return SvgPicture.asset(
-                        topic.thumbnail,
-                        width: constraints.maxWidth,
-                      );
-                    },
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(16),
-                    child: Text(
-                      topic.title,
-                      style: PrimaryFont.bold(
-                              context.screenSize.shortestSide * 0.04)
-                          .copyWith(
-                        color: topic.textColor,
+            return InkWell(
+              onTap: () {
+                Navigator.pushNamed(context, '$ReminderPage');
+              },
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  color: topic.bgColor,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    LayoutBuilder(
+                      builder: (context, constraints) {
+                        return SvgPicture.asset(
+                          topic.thumbnail,
+                          width: constraints.maxWidth,
+                        );
+                      },
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(16),
+                      child: Text(
+                        topic.title,
+                        style: PrimaryFont.bold(
+                                context.screenSize.shortestSide * 0.04)
+                            .copyWith(
+                          color: topic.textColor,
+                        ),
                       ),
                     ),
-                  ),
-                  const SizedBox(height: 16),
-                ],
+                    const SizedBox(height: 16),
+                  ],
+                ),
               ),
             );
           },
